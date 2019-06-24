@@ -6,6 +6,13 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
 jobs:
+  newman-collection-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./Misc.postman_collection.json
+
   build:
     docker:
       # specify the version you desire here
@@ -47,9 +54,4 @@ jobs:
           path: test-reports
           destination: test-reports
 
-      - newman-collection-run:
-          executor: newman/postman-newman-docker
-          steps:
-            - checkout
-            - newman/newman-run:
-                collection: ./Misc.postman_collection.json
+  
