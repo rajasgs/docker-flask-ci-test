@@ -63,4 +63,4 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: ./collection.json
+          collection: ./Misc.postman_collection.json
